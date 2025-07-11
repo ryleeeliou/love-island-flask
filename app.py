@@ -1,21 +1,16 @@
 from flask import Flask, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate 
 from config import Config 
+from models import db, Contestant
+
 
 #instantiate flask app and settings
 
 app = Flask(__name__)
 app.config.from_object(Config)
-
-#set database and migration engine 
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+db.init_app(app)
 
 #import models so they can be detected by flask
 
-from models import Contestant, Episode 
 
 @app.route("/")
 def index():
