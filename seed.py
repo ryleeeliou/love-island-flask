@@ -17,3 +17,7 @@ with app.app_context():
         Contestant(name="Olandria", age=27, occupation="Sales Specialist (she sells elevators...I'm sold!)")
 
     ]
+
+    db.session.add_all(contestants)
+    db.session.commit()
+    print("Database seeded successfully!")
