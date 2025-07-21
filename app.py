@@ -19,8 +19,8 @@ def index():
 
 @app.route("/contestant/<int:id>")
 def show_contestant(id):
-    c = Contestant.query.get_or_404(id)
-    return render_template("contestant.html", c=c)
+    contestant = Contestant.query.get_or_404(id)
+    return f"<h1>{contestant.name}</h1><p>Partner: {contestant.partner or 'Single'}</p>"
 
 
 #routes and views here later

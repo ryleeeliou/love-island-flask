@@ -8,7 +8,7 @@
     {% for c in contestants %}
       <li>
         <a href="{{ url_for('show_contestant', id=c.id) }}">
-          {{ c.name }} ({{ c.status }})
+          {{ c.name }} ({{ c.partner or 'Single' }})
         </a>
       </li>
     {% else %}
